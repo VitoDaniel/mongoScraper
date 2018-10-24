@@ -4,33 +4,41 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ArticleSchema = new Schema({
-    link: {
-        type: String,
-        required: true
-    },
-    image: {
-        type: String,
-        required: true
-    },
     title: {
         type: String,
-        required: true
-    },
-    body: {
+        required: true,
+        unique: true
+      },
+    
+      link: {
         type: String,
-        required: true
-    },
-    saved: {
+        required: true,
+        unique: true
+      },
+    
+      summary: {
+        type: String,
+        required: false,
+        unique: false
+      },
+    
+      byline: {
+        type: String,
+        required: false,
+        unique: false
+      },
+    
+      isSaved: {
         type: Boolean,
         default: false,
-        required: false
-    },
-    note: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Note"
-        }
-    ]
+        required: false,
+        unique: false
+      },
+      note: {
+        type: [
+            { type: Schema.Types.ObjectId, ref: 'Note'}
+        ],
+      }
 
 });
 
