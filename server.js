@@ -33,7 +33,7 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlin
 
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 // Start the server
 app.listen(PORT, function () {

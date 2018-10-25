@@ -20,8 +20,9 @@ router.get("/scrape", (req, res) => {
                 let result = {};
                 
                 result.title = $(element)
-                    .children('.story-heading')
-                    .children('a')
+                    .children('div')
+                    .children('div')
+                    .children('h2')
                     .text().trim();
                 result.link = $(element)
                     .children('.story-heading')
@@ -37,12 +38,12 @@ router.get("/scrape", (req, res) => {
                     .children('.byline')
                     .text().trim()
                     || 'No byline available'
-                
+                console.log(result);
                 if (result.title && result.link && result.summary){
                     
                     db.Article.create(result)
                         .then(function (dbArticle) {
-                            
+                          console.log(dbArticle);  
                             count++;
                         })
                         .catch(function (err) {
@@ -61,6 +62,7 @@ router.get("/scrape", (req, res) => {
 });
 
 router.get("/", (req, res) => {
+    console.log("we are here");
     db.Article.find({})
         .then(function (dbArticle) {
            
@@ -72,8 +74,9 @@ router.get("/", (req, res) => {
             res.render("index", hbsObject);        
         })
         .catch(function (err) {
-            
+            console.log(err);
             res.json(err);
+            
         });
 });
 
