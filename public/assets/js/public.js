@@ -23,7 +23,7 @@ $(document).ready(function () {
             $('.articles-available').empty();
             if (data[0].note.length > 0){
                 data[0].note.forEach(v => {
-                    $('.articles-available').append($(`<li class='list-group-item'>${v.text}<button type='button' class='btn btn-danger btn-sm float-right btn-deletenote' data='${v._id}'>X</button></li>`));
+                    $('.articles-available').append($(`<li class='list-group-item'>${v.note}<button type='button' class='btn btn-danger btn-sm float-right btn-deletenote' data='${v._id}'>X</button></li>`));
                 })
             }
             else {
@@ -54,7 +54,7 @@ $(document).ready(function () {
         $('#note-input').val('');
         $.ajax(`/note/${id}`, {
             type: "POST",
-            data: { text: noteText}
+            data: { note: noteText}
         }).then(function (data) {
             console.log(data)
         })
