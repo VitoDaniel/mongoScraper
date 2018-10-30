@@ -2,11 +2,7 @@
 const express = require("express");
 const bodyParser = require("body-parser"); //JSON responses
 const mongoose = require("mongoose"); //Mongo object modelling 
-const request = require("request"); //Makes http calls
-const cheerio = require("cheerio"); //Scraper
 
-// Require all models
-const db = require("./models");
 
 // Port configuration for local/Heroku
 const PORT = process.env.PORT || process.argv[2] || 8080;
