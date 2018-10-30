@@ -1,8 +1,11 @@
 # Mongo Scraper
 
-An app that uses cheerio and mongoose packages to scrape New York Times site. It display articles and allows them to be saved. Once saved visitors can add comments, and delete them.
-
+An app that uses cheerio and mongoose packages to scrape New York Times site. It display articles and allows them to be saved. 
 ![](public/assets/images/1.png)
+
+Once saved visitors can add comments, and delete them.
+
+
 ![](public/assets/images/2.png)
 
 ## Getting Started
